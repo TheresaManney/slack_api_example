@@ -1,2 +1,10 @@
+<!-- # we can't use _form partial since we don't have models
+# we now use form_tag instead of form_form -->
+<h1>Send Message to  <%= @single_channel["channel"]["name"] %></h1>
+<!-- Chris's way: @channel.name -->
+<%= form_tag create_message_path, method: "post" do %>
+  <%= label_tag(:message, "Enter Message") %>
+  <%= text_field_tag(:message) %>
+  <%= submit_tag("Send") %>
 
-<h1>Send Message to  </h1>
+<% end %>

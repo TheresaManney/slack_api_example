@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  get 'chats/index'
+  root 'homepages#index'
 
-  get 'chats/new'
+  get ':channel/new', to: 'homepages#new', as: 'new_message'
 
-  get 'chats/create'
+  # :channel will hold the slack id for the channel
+  post ':channel', to: 'homepages#create', as: 'create_message'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
